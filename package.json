@@ -1,0 +1,30 @@
+{
+  "name": "r-while_syntax_highlighter",
+  "version": "0.9.1",
+  "description": "R-WHILE syntax highlighter with Ace-js.",
+  "main": "rwhile.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yokoyama-lab/R-WHILE_Syntax_Highlighter.git"
+  },
+  "keywords": [
+    "R-WHILE",
+    "ace.js",
+    "syntax_highlighter"
+  ],
+  "author": "yokoyama-lab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yokoyama-lab/R-WHILE_Syntax_Highlighter/issues"
+  },
+  "homepage": "https://github.com/yokoyama-lab/R-WHILE_Syntax_Highlighter#readme",
+  "devDependencies": {
+    "co": "^4.6.0",
+    "fs-extra": "^9.0.1",
+    "node-cmd": "^3.0.0"
+  }
+}
