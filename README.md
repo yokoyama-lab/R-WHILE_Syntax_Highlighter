@@ -5,7 +5,7 @@
 R-WHILE syntax highlighter with [Ace-js](http://ace.c9.io/).
 
 ## Usage
-1. Install ace.js and mode-rwhile.js in the same directory on your project.
+1. Install `ace.js` and `mode-rwhile.js` in the same directory on your project.
 2. Write `HTML` as below.
 ```html
 <script src="js/ace.js"></script>
