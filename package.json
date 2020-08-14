@@ -2,7 +2,7 @@
   "name": "r-while_syntax_highlighter",
   "version": "0.9.1",
   "description": "R-WHILE syntax highlighter with Ace-js.",
-  "main": "rwhile.js",
+  "main": "build.js",
   "scripts": {
     "build": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
