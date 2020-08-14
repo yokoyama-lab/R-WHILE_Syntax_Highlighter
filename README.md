@@ -1,5 +1,5 @@
 # R-WHILE_Syntax_Highlighter
-[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/appleple/document-outliner/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/yokoyama-lab/R-WHILE_Syntax_Highlighter/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/ace-builds.svg)](https://www.npmjs.com/package/ace-builds)
 
 R-WHILE syntax highlighter with [Ace-js](https://github.com/ajaxorg/ace).
