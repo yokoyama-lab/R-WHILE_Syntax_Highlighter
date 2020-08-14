@@ -43,7 +43,7 @@ co(function* () {
     // compile r-while.js
     yield systemCmd(`node ./ace/Makefile.dryice.js -nc`);
 
-    fs.copySync(`./ace/build/src-noconflict/ace.js`, './build/ace.js');
+    // fs.copySync(`./ace/build/src-noconflict/ace.js`, './build/ace.js');
     fs.copySync(`./ace/build/src-noconflict/mode-rwhile.js`, './build/mode-rwhile.js');
     // fs.copySync(`./ace/LICENSE`, './build/LICENSE');
     // fs.copySync(`./ace/Readme.md`, './build/Readme.md');
