@@ -10,6 +10,8 @@ R-WHILE syntax highlighter with [Ace-js](https://github.com/ajaxorg/ace).
 ```html
 <script src="js/ace.js"></script>
 
+<div id="editor" style="height: 700px; width: 500px"></div>
+
 <script>
     var editor = ace.edit("editor");
     editor.session.setMode("ace/mode/rwhile");
