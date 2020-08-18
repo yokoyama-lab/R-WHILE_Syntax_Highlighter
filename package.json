@@ -1,6 +1,6 @@
 {
   "name": "r-while_syntax_highlighter",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "R-WHILE syntax highlighter with Ace-js.",
   "main": "build.js",
   "scripts": {

@@ -1,71 +1,19 @@
-ace.define("ace/mode/doc_comment_highlight_rules",[], function(require, exports, module) {
-"use strict";
-
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-
-var DocCommentHighlightRules = function() {
-    this.$rules = {
-        "start" : [ {
-            token : "comment.doc.tag",
-            regex : "@[\\w\\d_]+" // TODO: fix email addresses
-        }, 
-        DocCommentHighlightRules.getTagRule(),
-        {
-            defaultToken : "comment.doc",
-            caseInsensitive: true
-        }]
-    };
-};
-
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
-
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex : "\\/\\*(?=\\*)",
-        next  : start
-    };
-};
-
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
-
-
-exports.DocCommentHighlightRules = DocCommentHighlightRules;
-
-});
-
 ace.define("ace/mode/rwhile_highlight_rules",[], function(require, exports, module) {
     "use strict";
     
     var oop = require("../lib/oop");
-    var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
     var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
     
     var RwhileHighlightRules = function() {
-        var keywords = ("cons|hd|tl|=?|read|write|macro|if|then|else|fi|from|do|loop|until|read|write");
-        var buildinConstants = ("nil");
+        var keyword = ("cons|hd|tl|if|fi|from|until|show|then|else|do|loop|read|write|macro");
+        var builtinConstants = ("nil");
 
         var keywordMapper = this.createKeywordMapper({
-            "keyword": keywords,
-            "constant.language": buildinConstants,
-        }, "identifier");
+            "keyword": keyword,
+            "constant.language": builtinConstants,
+        }, "identifier"); 
        this.$rules = {
             "start" : [
-                DocCommentHighlightRules.getStartRule("doc-start"),
                 {
                     token : "comment", // multi line comment
                     regex : "\\(\\*",
@@ -73,6 +21,26 @@ ace.define("ace/mode/rwhile_highlight_rules",[], function(require, exports, modu
                 }, {
                     token: keywordMapper, // String, Array, or Function: the CSS token to apply
                     regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b", // String or RegExp: the regexp to match
+                }, {
+                    token : "keyword.operator",
+                    regex : "\\^=|<=|=\\?"
+                }, {
+                    token : "variable",
+                    regex : /'(?!\s|\.|;|,|\))/,
+                    next : "variable"
+                }
+            ],
+            "variable" : [
+                {
+                    token : "variable",
+                    regex : /[a-zA-Z0-9](?=\s|\.|;|,|\))/,
+                    next : "start"
+                }, {
+                    token : "variable",
+                    regex : /^\s*/,
+                    next : "start"
+                }, {
+                    defaultToken : "variable"
                 }
             ],
             "comment" : [
